@@ -1,5 +1,3 @@
-package test;
-
 import calc.Equation;
 
 public class CalcMainCommandStyle {
