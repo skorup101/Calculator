@@ -23,21 +23,10 @@ public class RPNparser {
         rpn=toPolishNotation(input);
     }
 
-    @Override
-    public String toString() {
-        return "calc.RPNparser{" +
-                "rpn= " + rpn +
-                '}';
-    }
-
-    public Queue<String> getRpn() {
-        return new LinkedBlockingQueue(rpn);
-    }
-
     private static List<String> dividingString(String s){ //dzieli 22+3*2 na {22,+,3,*,2}
         Pattern p = Pattern.compile("\\d+[.]?\\d*|[+\\-*/^()]");
         Matcher m = p.matcher(s);
-        List<String> array = new ArrayList();
+        List<String> array = new ArrayList<>();
         while(m.find()){
             array.add(m.group());
         }
@@ -91,5 +80,16 @@ public class RPNparser {
         }
         m.appendTail(sb);
         return new String(sb);
+    }
+
+    @Override
+    public String toString() {
+        return "calc.RPNparser{" +
+                "rpn= " + rpn +
+                '}';
+    }
+
+    public Queue<String> getRpn() {
+        return new LinkedBlockingQueue<>(rpn);
     }
 }
